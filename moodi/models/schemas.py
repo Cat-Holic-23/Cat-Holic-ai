@@ -1,5 +1,7 @@
-from pydantic import BaseModel
 from typing import List
+
+from pydantic import BaseModel
+
 
 # story-gen
 class StoryRequest(BaseModel):
@@ -7,11 +9,13 @@ class StoryRequest(BaseModel):
     social_situation: str
     learning_history_summary: str
 
+
 class StoryResponse(BaseModel):
     story: str
     question: str
     choices: List[str]
     correct_answer: str
+
 
 # story-check
 class StoryCheckRequest(BaseModel):
@@ -21,10 +25,12 @@ class StoryCheckRequest(BaseModel):
     correct_answer: str
     user_selected: str
 
+
 class StoryCheckResponse(BaseModel):
     correct_answer: str
     user_selected: str
     explanation: str
+
 
 # summation
 class RecentAnswer(BaseModel):
@@ -33,11 +39,14 @@ class RecentAnswer(BaseModel):
     user_selected: str
     correct_answer: str
 
+
 class SummationRequest(BaseModel):
     recent_answers: List[RecentAnswer]
 
+
 class SummationResponse(BaseModel):
     learning_history_summary: str
+
 
 # 공통 에러
 class ErrorResponse(BaseModel):
