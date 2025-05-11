@@ -8,7 +8,7 @@ client = TestClient(app)
 
 def test_generate_story():
     response = client.post(
-        "/gemini/generate-story", 
+        "/gemini/story_gen", 
         json={
             "age": 10,
             "social_situation": "새로운 학년이 시작되어 자기소개를 해야 하는 상황",

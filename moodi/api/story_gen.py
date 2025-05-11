@@ -4,7 +4,7 @@ from moodi.prompts.story_gen import get_story_response
 
 router = APIRouter()
 
-@router.post("/generate-story", response_model=StoryResponse, responses={400: {"model": ErrorResponse}, 500: {"model": ErrorResponse}})
+@router.post("/story_gen", response_model=StoryResponse, responses={400: {"model": ErrorResponse}, 500: {"model": ErrorResponse}})
 async def generate_story(request: StoryRequest):
     try:
         response = get_story_response(request)
