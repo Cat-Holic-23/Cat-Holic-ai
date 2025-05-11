@@ -12,9 +12,7 @@ app.include_router(
     story_gen.router, prefix="/gemini", tags=["Story Generation"]
 )
 
-# app.include_router(story_check.router,
-# prefix="/gemini",
-# tags=["Story Check"])
+app.include_router(story_check.router, prefix="/gemini", tags=["Story Check"])
 
 # app.include_router(summation.router,
 # prefix="/local",
