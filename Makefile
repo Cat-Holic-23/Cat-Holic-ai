@@ -11,10 +11,13 @@ lint:
 
 # pytest 테스트 실행
 test:
-	poetry run pytest
+	poetry run pytest tests/test_api.py -s
+
 
 # 포맷팅, 린팅, 테스트 순차적 실행
 check: format lint test
 
 # 기본 명령어: check를 기본 설정
 all: check
+
+
