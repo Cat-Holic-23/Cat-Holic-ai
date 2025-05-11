@@ -1,5 +1,5 @@
 [project]
-name = "cat-holic-ai"
+name = "moodi"
 version = "0.1.0"
 description = ""
 authors = [
@@ -8,7 +8,12 @@ authors = [
 readme = "README.md"
 requires-python = "~=3.10"
 dependencies = [
-    "python-dotenv (>=1.1.0,<2.0.0)"
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "langchain (>=0.3.25,<0.4.0)",
+    "langchain-google-genai (>=2.1.4,<3.0.0)",
+    "fastapi (>=0.115.12,<0.116.0)",
+    "uvicorn (>=0.34.2,<0.35.0)",
+    "pydantic (>=2.11.4,<3.0.0)",
 ]
 
 
@@ -17,11 +22,29 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-package-mode = false
+package-mode = true
+packages = [{ include = "moodi" }]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
 flake8 = "^7.2.0"
 black = "^25.1.0"
 isort = "^6.0.1"
+httpx = "^0.28.1"
 
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | \.mypy_cache
+  | \.pytest_cache
+  | __pycache__
+)/
+'''
+
+[tool.flake8]
+max-line-length = 79
+extend-ignore = ["E203", "W503"]
