@@ -1,10 +1,12 @@
 from fastapi.testclient import TestClient
+
 from moodi.main import app
 from moodi.utils.config import load_config
 
 load_config(env_path="config/dev.env")
 
 client = TestClient(app)
+
 
 def test_story_check_wrong_answer():
     response = client.post(
@@ -25,6 +27,7 @@ def test_story_check_wrong_answer():
     assert result["correct_answer"] == "슬픔"
     assert result["user_selected"] == "화남"
     assert "슬픔" in result["explanation"]
+
 
 def test_story_check_correct_answer():
     response = client.post(

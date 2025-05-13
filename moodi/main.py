@@ -14,6 +14,4 @@ app.include_router(
 
 app.include_router(story_check.router, prefix="/gemini", tags=["Story Check"])
 
-# app.include_router(summation.router,
-# prefix="/local",
-# tags=["Summation"])
+app.include_router(summation.router, prefix="/local", tags=["Summation"])
